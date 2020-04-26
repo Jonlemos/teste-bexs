@@ -1,0 +1,31 @@
+.credit-card {
+    display: flex;
+    width: 250px;
+    height: 150px;
+
+    .front,
+    .back {
+        width: 100%;
+        height: 100%;
+    }
+
+    .front {
+        display: block;
+        background-color: #fff;
+    }
+
+    .back {
+        display: none;
+        background-color: #303030;
+    }
+
+    &.flipped {
+        .front {
+            display: none;
+        }
+
+        .back {
+            display: block;
+        }
+    }
+}

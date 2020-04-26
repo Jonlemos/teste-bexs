@@ -1,0 +1,22 @@
+form {
+    align-items: center;
+    justify-content: center;
+
+    &,
+    .field {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .field { 
+        input,
+        select {
+            height: 20px;
+            width: 250px;
+        }
+
+        &.error {
+            border: 2px solid red;
+        }
+    }
+}
