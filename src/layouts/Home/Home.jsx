@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-
 import { Form, CreditCard  } from '../../components';
-
+import './Home.scss'
+import logo from '../../assets/img/cardLogo.svg'
 export default () => {
     const [inputs, setInputs] = useState({});
     const [errors, setErrors] = useState({});
@@ -55,6 +55,19 @@ export default () => {
 
     return (
         <section className="layout home">
+            <div className="left-container">
+                <div className="title-credit">
+                    <p>{'<'} Alterar forma de pagamento</p>
+                    <div>
+                        <img src={logo} />
+                        <p>Adicione um novo cartão de crédito</p>
+                    </div>
+                   
+                </div>
+                
+                <CreditCard values={inputs} flipped={cardFlipped}/>
+            </div>
+            
             {errors['expires']}
             <Form
                 onChange={handleFormChange}
@@ -64,7 +77,7 @@ export default () => {
                 values={inputs}
                 errors={errors}
             />
-            <CreditCard values={inputs} flipped={cardFlipped}/>
+            
         </section>
     );
 }

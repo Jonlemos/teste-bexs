@@ -1,22 +1,50 @@
 .credit-card {
     display: flex;
-    width: 250px;
-    height: 150px;
+    margin-right: -80px;
+    z-index: 1;
 
     .front,
     .back {
-        width: 100%;
-        height: 100%;
+        width: 364px;
+        height: 224px;
+        border-radius: 5px;
+    }
+    .brand{
+        background: transparent url('../../assets/img/Image\ 1.png') 0% 0% no-repeat;
+        z-index: 3;
+        width: 69px;
+        height: 23px;
     }
 
     .front {
-        display: block;
-        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content:  space-around;
+        align-items: flex-start;
+        background: transparent url('../../assets/img/Group\ 2291.svg') 0% 0% no-repeat padding-box;
+        color: #fff ;
+        padding: 0 0 0 26px;
+
+        .cardNumber {
+            font-size: 24px;
+            font-family: Regular;
+            letter-spacing: 5px;
+        }
+
+        .nameCard{
+            width: 299px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
     }
 
     .back {
         display: none;
-        background-color: #303030;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        background: transparent url('../../assets/img/backCardCredit.svg') 0% 0% no-repeat padding-box;
     }
 
     &.flipped {
@@ -25,7 +53,12 @@
         }
 
         .back {
-            display: block;
+            display: flex;
+            .cvv{
+                padding: 25px 35px;
+            }
+
         }
     }
+    
 }
