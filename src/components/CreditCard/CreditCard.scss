@@ -73,3 +73,30 @@ $flip-time: 0.5s;
     }
     
 }
+
+
+@media only screen and (max-width: 360px) {
+    .credit-card{
+        margin: 0 auto;
+        margin-bottom: -65px;
+        width: 280px;
+        height: 172px;
+        .front,
+        .back {
+            width: 280px;
+            height: 172px;
+            padding: 0 0 0 14px;
+        }
+
+        .front{
+            .cardNumber {
+                padding-left: 5px;
+                font-size: 19px;
+                letter-spacing: 6px;
+            }
+            .nameCard{
+                width: 246px;
+            }
+        }
+    }
+}

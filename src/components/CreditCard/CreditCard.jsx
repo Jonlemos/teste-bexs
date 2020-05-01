@@ -1,7 +1,7 @@
 import React from 'react';
 import './CreditCard.scss';
 
-export default ({ values: { brand, cardNumber = '', name, expires, cvv }, flipped }) => {
+export default ({ values: { brand, cardNumber = "", name, expires= "", cvv }, flipped }) => {
 
     let remainDigits = '';
 
@@ -16,6 +16,14 @@ export default ({ values: { brand, cardNumber = '', name, expires, cvv }, flippe
     for (let i = 0; i <= 16; i += 4) {
         result += cardNumber.substring(i, i + 4) + ' ';
     }
+
+    // let expiresRes = '';
+
+    // for (let i = 0; i <= 2; i += 2){
+    //     expiresRes += expires.substring(i, i + 4  ) + '/'
+    // }
+
+    // expires = expiresRes
     
     cardNumber = result;
 

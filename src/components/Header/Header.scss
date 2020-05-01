@@ -32,3 +32,10 @@
         }
     }
 }
+
+
+@media only screen and (max-width: 361px) {
+    .header{
+      display: none;
+    }
+}

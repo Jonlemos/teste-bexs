@@ -64,9 +64,9 @@ export default ({ onChange, onBlur, onSubmit, onFocus, values, errors }) => (
         <div className="field">
             <select onChange={onChange} name="installmentValue" type="text" defaultValue="number">
                 <option value="number" disabled hidden>Número de parcelas</option>
-                <option value="12000">1x R$ 12.000,00</option>
-                <option value="5000">6x R$ 5.000,00</option>
-                <option value="1000">12x R$ 1.000,00</option>
+                <option className="option" value="12000">1x R$ 12.000,00</option>
+                <option className="option" value="5000">6x R$ 5.000,00</option>
+                <option className="option" value="1000">12x R$ 1.000,00</option>
             </select>
             <p>Insira o número de parcelas</p>
         </div>

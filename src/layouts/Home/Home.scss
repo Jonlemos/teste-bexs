@@ -3,3 +3,12 @@
     height: 596px;
     width: 1024px;
 }
+
+
+@media only screen and (max-width: 361px) {
+    .layout{
+      flex-direction: column;
+      width: 360px;
+      height: auto;
+    }
+  }

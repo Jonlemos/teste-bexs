@@ -51,18 +51,28 @@ form {
         &:nth-child(1) {
             margin-top: 0;
         }
+        input{
+            height: 20px;
+        }
 
         input,
         select {
             margin: 6px 0;
             padding: 12px 0;
-            height: 20px;
             width:  440px;
             border: none;
             border-bottom: 1px #C9C9C9 solid;
             color: #3C3C3C;
             font-size: 17px;
             outline: none;
+        }
+
+        select{
+            color: #C9C9C9
+        }
+
+        .option{
+            color:#3C3C3C
         }
 
         input::after {
@@ -104,5 +114,44 @@ form {
         &:hover {
             background-color: rgb(175, 57, 57) ;
         }
+    }
+}
+
+
+@media only screen and (max-width: 360px) {
+    form{
+        margin-bottom: 20px;
+        width: 360px;
+        margin-top: 100px;
+
+        .field{
+            margin-top: 10px;
+            input, 
+            select{
+                width: 280px;
+            }
+        }
+        .row {
+            margin-top: 25px;
+            .field {
+                
+                input {
+                    width: 135px;
+                    margin-top: 0;
+                }
+    
+                &:nth-child(2) {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        button{
+            width: 280px;
+            height: 51px;
+            margin: auto;
+            margin-top: 45px;
+        }
+        
     }
 }

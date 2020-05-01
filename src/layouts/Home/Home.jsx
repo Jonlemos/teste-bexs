@@ -62,7 +62,9 @@ export default () => {
         <section className="layout home">
             <div className="left-container">
                 <div className="title-credit">
-                    <p><Icon className="leficonM" path={mdiChevronLeft} size={1} color="#fff"/>Alterar forma de pagamento</p>
+                    <p><Icon className="leficonM" path={mdiChevronLeft} size={1} color="#fff"/> 
+                    <span className="title-high">Alterar forma de pagamento</span><span className="title-small">Etapa 2 de 3</span>
+                    </p>
                     <div>
                         <img src={logo} />
                         <p>Adicione um novo cartão de crédito</p>
