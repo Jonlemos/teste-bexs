@@ -7,17 +7,17 @@ export default ({ values: { brand, cardNumber = '', name, expires, cvv }, flippe
 
     for (let i = 0; i < 16 - cardNumber.length; i++) {
         remainDigits += '*';
-        for (let i = 0; i < remainDigits.length ; i++){
-            if (remainDigits.length === 4 || remainDigits.length === 10 || remainDigits.length === 16){
-                remainDigits += "  "
-            }
-        }
     }
-
     
     cardNumber = cardNumber.length <= 16 ? cardNumber + remainDigits : cardNumber;
+
+    let result = '';
+
+    for (let i = 0; i <= 16; i += 4) {
+        result += cardNumber.substring(i, i + 4) + ' ';
+    }
     
-    
+    cardNumber = result;
 
     return (
     <div className={`credit-card${flipped ? ' flipped' : ''}`}>

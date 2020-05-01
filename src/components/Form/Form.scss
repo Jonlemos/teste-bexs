@@ -1,8 +1,9 @@
 form {
+    display: flex;
     align-items: center;
     justify-content: center;
-    background-color: fff;
-    
+    background-color: #fff;
+    width: 672px;
 
     &,
     .field {
@@ -10,15 +11,98 @@ form {
         flex-direction: column;
     }
 
+    .row {
+        display: flex;
+        margin-top: 41px;
+
+        .field {
+            margin: 0;
+
+            input {
+                width: 212px;
+            }
+
+            &:nth-child(2) {
+                margin-left: 16px;
+            }
+        }
+    }
+
     .field { 
+        margin-top: 41px;
+        font-size: 13px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        position: relative;
+
+        label {
+            color: #C9C9C9;
+            font-size: 17px;
+            position: absolute;
+            pointer-events: none;
+            bottom: 25px;
+            transition: font-size 0.25s ease, bottom 0.25s ease;
+        }
+
+        p {
+            opacity: 0;
+            color: #DE4B4B;
+        }
+
+        &:nth-child(1) {
+            margin-top: 0;
+        }
+
         input,
         select {
+            margin: 6px 0;
+            padding: 12px 0;
             height: 20px;
-            width: 250px;
+            width:  440px;
+            border: none;
+            border-bottom: 1px #C9C9C9 solid;
+            color: #3C3C3C;
+            font-size: 17px;
+            outline: none;
+        }
+
+        input::after {
+            content: 'Teste';
+            display: block;
+
         }
 
         &.error {
-            border: 2px solid red;
+            input {
+                border-bottom: 1px solid red;
+            }
+
+            p {
+                opacity: 1;
+            }
+        }
+        
+        &.filled {
+            label {
+                bottom: 48px;
+                font-size: 13px;
+            }
+        }
+    }
+
+    button{
+        cursor: pointer;
+        outline: none;
+        color: white;
+        width: 246px;
+        height: 51px;
+        background-color: #DE4B4B;
+        border-radius: 10px;
+        border: none;
+        margin: 65px 0 65px 197px;
+        transition: background-color 0.25s ease;
+
+        &:hover {
+            background-color: rgb(175, 57, 57) ;
         }
     }
 }

@@ -24,10 +24,9 @@ code {
 .left-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-end;
   background-color:#DE4B4B ;
-  height: 596px;
+  height: 100%;
   width: 352px;
 }
 .left-container .title-credit{
@@ -35,10 +34,13 @@ code {
   flex-direction: column;
 }
 .left-container .title-credit p:nth-child(1){
+  display: flex;
+  align-items: center;
   font-size: 13px ;
   font-family: Verdana;
   color: #fff;
-  font-weight: regular;
+  /* font-weight: bold; */
+  margin-top: 50px;
 }
 .left-container .title-credit p:nth-child(2){
   font-size: 20px ;
@@ -47,6 +49,9 @@ code {
   color: #fff;
 }
 
+.left-container .title-credit .leficonM {
+  margin-right: 5px;
+}
 .left-container .title-credit img {
   height: 50px;
   padding: 0 15px 0 0 ;
@@ -59,3 +64,9 @@ code {
   margin: 54px 16px 31px 0;
 }
 
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

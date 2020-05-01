@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Form, CreditCard  } from '../../components';
+import { Form, CreditCard, Header  } from '../../components';
 import './Home.scss'
 import logo from '../../assets/img/cardLogo.svg'
+import Icon from '@mdi/react';
+import {mdiChevronLeft} from '@mdi/js';
 export default () => {
     const [inputs, setInputs] = useState({});
     const [errors, setErrors] = useState({});
@@ -26,22 +28,25 @@ export default () => {
         } else if (name === 'cvv') {
             value = validate(value, 3) ? value : inputs[name];
         } else if (name === 'name') {
-            value = value.toUpperCase();
+            value = (value.length <= 24 ? value : inputs[name]).toUpperCase();
         }
         setInputs(inputs => ({ ...inputs, [name]: value }));
     }
 
     const handleFormFocus = ({ target: { name } }) => {
         setCardFlipped(name === 'cvv');
-        name === 'cardNumber' && setErrors(errors => ({ ...errors, [name]: false }));
-        name === 'expires' && setErrors(errors => ({ ...errors, [name]: false }));
-        name === 'cvv' && setErrors(errors => ({ ...errors, [name]: false }));
+        // name === 'cardNumber' && setErrors(errors => ({ ...errors, [name]: false }));
+        // name === 'expires' && setErrors(errors => ({ ...errors, [name]: false }));
+        // name === 'cvv' && setErrors(errors => ({ ...errors, [name]: false }));
+        // name === 'name' && setErrors(errors => ({ ...errors, [name]: false }));
+        setErrors(errors => ({ ...errors, [name]: false }));
     }
 
     const handleFormBlur = ({ target: { name, value }}) => {
         name === 'cardNumber' && setErrors(errors => ({ ...errors, [name]: value.length < 16 }));
         name === 'expires' && setErrors(errors => ({ ...errors, [name]: value.length < 4 || errors[name] }));
         name === 'cvv' && setErrors(errors => ({ ...errors, [name]: value.length < 3 }));
+        name === 'name' && setErrors(errors => ({...errors, [name]: value.split(' ').length <= 1 }));
     }
 
     const handleFormSubmit = event => {
@@ -57,7 +62,7 @@ export default () => {
         <section className="layout home">
             <div className="left-container">
                 <div className="title-credit">
-                    <p>{'<'} Alterar forma de pagamento</p>
+                    <p><Icon className="leficonM" path={mdiChevronLeft} size={1} color="#fff"/>Alterar forma de pagamento</p>
                     <div>
                         <img src={logo} />
                         <p>Adicione um novo cartão de crédito</p>
@@ -68,15 +73,19 @@ export default () => {
                 <CreditCard values={inputs} flipped={cardFlipped}/>
             </div>
             
-            {errors['expires']}
-            <Form
-                onChange={handleFormChange}
-                onBlur={handleFormBlur}
-                onFocus={handleFormFocus}
-                onSubmit={handleFormSubmit}
-                values={inputs}
-                errors={errors}
-            />
+            <div className="right-container">
+                <Header />
+                <Form
+                    onChange={handleFormChange}
+                    onBlur={handleFormBlur}
+                    onFocus={handleFormFocus}
+                    onSubmit={handleFormSubmit}
+                    values={inputs}
+                    errors={errors}
+                />
+
+            </div>
+            
             
         </section>
     );
